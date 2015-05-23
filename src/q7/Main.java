@@ -27,8 +27,8 @@ public class Main {
         }
         /*
         * Jaka wartość zostanie wyświetlona w konsoli po wywołaniu powyższego programu?
-        * A) MaybeSomedayNastępczyniHopelessGra o tronEleonora i ParkGwiazd naszych wina
-        * B) Maybe Someday, Następczyni, Hopeless, Gra o tron, Eleonora i Park, Gwiazd naszych wina
+        * A) yademoS ebyaMinyzcpętsaNsselepoHnort o arGkraP i aronoelEaniw hcyzsan dzaiwG
+        * B) aniw hcyzsan dzaiwG kraP i aronoelE nort o arG sselepoH inyzcpętsaN yademoS ebyaM
         * C) Maybe Someday Następczyni Hopeless Gra o tron Eleonora i Park Gwiazd naszych wina
         * +D) yademoS ebyaM inyzcpętsaN sselepoH nort o arG kraP i aronoelE aniw hcyzsan dzaiwG
         * */
@@ -48,8 +48,8 @@ public class Main {
         books.forEach(book -> System.out.print(book.getName() + " "));
         /*
         * Jaka wartość zostanie wyświetlona w konsoli po wywołaniu powyższego programu?
-        * A) MaybeSomedayNastępczyniHopelessGra o tronEleonora i ParkGwiazd naszych wina
-        * B) Maybe Someday, Następczyni, Hopeless, Gra o tron, Eleonora i Park, Gwiazd naszych wina
+        * A) yademoS ebyaMinyzcpętsaNsselepoHnort o arGkraP i aronoelEaniw hcyzsan dzaiwG
+        * B) aniw hcyzsan dzaiwG kraP i aronoelE nort o arG sselepoH inyzcpętsaN yademoS ebyaM
         * C) Maybe Someday Następczyni Hopeless Gra o tron Eleonora i Park Gwiazd naszych wina
         * +D) yademoS ebyaM inyzcpętsaN sselepoH nort o arG kraP i aronoelE aniw hcyzsan dzaiwG
         * */

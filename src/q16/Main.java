@@ -58,6 +58,9 @@ public class Main {
         map.put("key4", dealers);
         map.values().forEach(x -> x.stream().forEach(y -> System.out.print(y.getMobile() + " ")));
         /*
+
+
+
         * Jaka wartość zostanie wyświetlona w konsoli po wywołaniu powyższego programu?
         * A) 444444444 666666666 222222222 555555555 111111111 333333333
         * B) 111111111 333333333 555555555 444444444 666666666 222222222

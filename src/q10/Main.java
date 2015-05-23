@@ -20,7 +20,7 @@ public class Main {
         fruits.add("peach");
         fruits.add("banana");
         fruits.add("mango");
-        fruits.sort((String a, String b) -> a.toUpperCase().compareTo(b.toLowerCase()));
+        fruits.sort((String a, String b) -> a.toUpperCase().compareTo(b.toUpperCase()));
 
         for(String fruit : fruits) {
             System.out.print(fruit + " ");
@@ -28,8 +28,8 @@ public class Main {
         /*
         * Jaka wartość zostanie wyświetlona w konsoli po wywołaniu powyższego programu?
         * A) MANGO BANANA PEACH GRAPE STRAWBERRIES WATERMELON
-        * B) banana grape mango peach strawberries watermelon
-        * +C) mango banana peach grape strawberries watermelon
+        * +B) banana grape mango peach strawberries watermelon
+        * C) mango banana peach grape strawberries watermelon
         * D) BANANA GRAPE MANGO PEACH STRAWBERRIES WATERMELON
         * */
     }

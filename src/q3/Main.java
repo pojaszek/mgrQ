@@ -17,17 +17,22 @@ public class Main {
         orders.add(new Order(Status.PAID, 34324.0, false));
         orders.add(new Order(Status.PAID, 5443.14, true));
         orders.add(new Order(Status.UNPAID, 234.42, false));
-        orders.add(new Order(Status.UNPAID, 11.46, true));
+        orders.add(new Order(Status.UNPAID, 11.46, false));
         orders.add(new Order(Status.PREPERING, 55.99, true));
         orders.add(new Order(Status.SEND, 56.99, false));
         orders.add(new Order(Status.SEND, 100.00, true));
 
-        long count = orders.stream().filter(order -> order.getStatus() != Status.SEND && order.getValue() < 7500 && !order.isPrepaid()).count();
+        int count = 0;
+        for(Order order : orders) {
+            if(order.getStatus() != Status.SEND && order.getValue() < 10000 && !order.isPrepaid()) {
+                count++;
+            }
+        }
         System.out.print(count);
         /*
         * Jaka wartość zostanie wyświetlona w konsoli po wywołaniu powyższego programu?
-        * +A) 1
-        * B) 2
+        * A) 1
+        * +B) 2
         * C) 3
         * D) 5
         * */

@@ -23,8 +23,8 @@ public class Main {
 
         long count = 0;
         for(Car car : cars) {
-            if(car.getEngineCapacity() < 1.4 && car.getColor() != Color.BLACK) {
-                ++count;
+            if(car.getEngineCapacity() <= 1.5 && car.getColor() != Color.BLACK) {
+                count++;
             }
         }
         System.out.print(count);
@@ -48,7 +48,7 @@ public class Main {
         cars.add(new Car(Color.GREAN, 1.22));
         cars.add(new Car(Color.YELLOW, 0.97));
 
-        long count = cars.stream().filter(car -> car.getEngineCapacity() <= 1.5 && car.getColor() == Color.BLACK).count();
+        long count = cars.stream().filter(car -> car.getEngineCapacity() <= 1.5 && car.getColor() != Color.BLACK).count();
 
         System.out.print(count);
         /*

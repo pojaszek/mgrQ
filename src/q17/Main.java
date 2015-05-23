@@ -12,7 +12,7 @@ public class Main {
     //2.3.1.3.	Ponowne użycie wyrażenia lambda
     public static void main2(String[] args) {
         //with idiom
-        final Predicate<String> isPhoneNumber = x -> x.matches("[0-9]{3}-[0-9]{3}-[0-9]{3}");
+        final Predicate<String> containsDashChar = x -> x.contains("-");
         final List<String> phoneNumbers = new LinkedList<>();
         phoneNumbers.add("878-432-657");
         phoneNumbers.add("565 423 455");
@@ -20,11 +20,11 @@ public class Main {
         phoneNumbers.add("654-543-443");
         phoneNumbers.add("48-545-123-432");
 
-        System.out.print(phoneNumbers.stream().filter(isPhoneNumber).count());
+        System.out.print(phoneNumbers.stream().filter(containsDashChar).count());
         /*
         * Jaka wartość zostanie wyświetlona w konsoli po wywołaniu powyższego programu?
-        * A) 3
-        * +B) 2
+        * +A) 3
+        * B) 2
         * C) 1
         * D) 0
         * */
@@ -39,11 +39,11 @@ public class Main {
         phoneNumbers.add("654-543-443");
         phoneNumbers.add("48-545-123-432");
 
-        System.out.print(phoneNumbers.stream().filter(x -> x.matches("[0-9]{3}-[0-9]{3}-[0-9]{3}")).count());
+        System.out.print(phoneNumbers.stream().filter(x -> x.contains("-")).count());
         /*
         * Jaka wartość zostanie wyświetlona w konsoli po wywołaniu powyższego programu?
-        * A) 3
-        * +B) 2
+        * +A) 3
+        * B) 2
         * C) 1
         * D) 0
         * */

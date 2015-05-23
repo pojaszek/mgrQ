@@ -5,31 +5,17 @@ package q12;
  */
 public class Speaker {
 
-    private String brand;
-    private int power;
+    private int volume;
 
-    public Speaker(int power) {
-        this.power = power;
+    public Speaker(int volume) {
+        this.volume = volume;
     }
 
-    public Speaker(String brand, int power) {
-        this.brand = brand;
-        this.power = power;
+    public int getVolume() {
+        return volume;
     }
 
-    public String getBrand() {
-        return brand;
-    }
-
-    public int getPower() {
-        return power;
-    }
-
-    @Override
-    public String toString() {
-        return "Speaker{" +
-                "brand='" + brand + '\'' +
-                ", power=" + power +
-                '}';
+    public void setVolume(int volume) {
+        this.volume = volume;
     }
 }
