@@ -1,51 +1,73 @@
 package q17;
 
-import java.math.BigDecimal;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.function.Predicate;
 
 /**
  * Created by user on 20-May-15.
  */
-public class Main {
-    //2.3.1.3.	Ponowne użycie wyrażenia lambda
-    public static void main2(String[] args) {
-        //with idiom
-        final Predicate<String> containsDashChar = x -> x.contains("-");
-        final List<String> phoneNumbers = new LinkedList<>();
-        phoneNumbers.add("878-432-657");
-        phoneNumbers.add("565 423 455");
-        phoneNumbers.add("656345534");
-        phoneNumbers.add("654-543-443");
-        phoneNumbers.add("48-545-123-432");
 
-        System.out.print(phoneNumbers.stream().filter(containsDashChar).count());
-        /*
-        * Jaka wartość zostanie wyświetlona w konsoli po wywołaniu powyższego programu?
-        * +A) 3
-        * B) 2
-        * C) 1
-        * D) 0
-        * */
+//2.3.2.1.	Przetwarzanie danych z wykorzystaniem strumieni w celu filtrowania, sortowania i mapowania jej elementów
+//2.3.3.1.	Opakowywanie obiektów w obiekt typu Optional<T>, jako lepsza alternatywa obsługi niezainicjalizowanych zmiennych
+
+//with idiom
+
+     class Main2 {
+        public static void main(String[] args) {
+            List<String> myFavouriteNames = new LinkedList<>();
+            myFavouriteNames.add("Tomek");
+            myFavouriteNames.add("Marek");
+            myFavouriteNames.add("Janusz");
+            myFavouriteNames.add("Kuba");
+            myFavouriteNames.add("Radek");
+            myFavouriteNames.add("Damian");
+
+            System.out.print(myFavouriteNames.stream()
+                    .map(x -> x.toLowerCase())
+                    .filter(x -> x.startsWith("K"))
+                    .findFirst());
+        }
     }
 
-    public static void main(String[] args) {
-        //without idiom
-        final List<String> phoneNumbers = new LinkedList<>();
-        phoneNumbers.add("878-432-657");
-        phoneNumbers.add("565 423 455");
-        phoneNumbers.add("656345534");
-        phoneNumbers.add("654-543-443");
-        phoneNumbers.add("48-545-123-432");
+            /*
+        * Jaka wartość zostanie wyświetlona w konsoli po wywołaniu powyższego programu?
+        * +A) Optional.empty
+        * B) null
+        * C) Kuba
+        * D) kuba
+        * */
 
-        System.out.print(phoneNumbers.stream().filter(x -> x.contains("-")).count());
+//without idiom
+
+    public class Main {
+        public static void main(String[] args) {
+            List<String> myFavouriteNames = new LinkedList<>();
+            myFavouriteNames.add("Tomek");
+            myFavouriteNames.add("Marek");
+            myFavouriteNames.add("Janusz");
+            myFavouriteNames.add("Kuba");
+            myFavouriteNames.add("Radek");
+            myFavouriteNames.add("Damian");
+
+            List<String> myFavouriteLowerNames = new LinkedList<>();
+            for(String name : myFavouriteNames) {
+                myFavouriteLowerNames.add(name.toLowerCase());
+            }
+            String searchedName = null;
+            for(String name : myFavouriteLowerNames) {
+                if(name.startsWith("K")) {
+                    searchedName = name;
+                    break;
+                }
+            }
+            System.out.print(searchedName);
+        }
+    }
+
         /*
         * Jaka wartość zostanie wyświetlona w konsoli po wywołaniu powyższego programu?
-        * +A) 3
-        * B) 2
-        * C) 1
-        * D) 0
+        * A) Optional.empty
+        * +B) null
+        * C) Kuba
+        * D) kuba
         * */
-    }
-}

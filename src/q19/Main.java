@@ -3,68 +3,48 @@ package q19;
 /**
  * Created by user on 21-May-15.
  */
-public class Main {
+//Nieopisane w pracy - do dopisania
+//Nowe API, które pojawiło się w klasie String: statyczna metoda join w String.class i metoda chars() zwracająca strumień danych typu char
+//Podchwytliwe pytanie, dane typu char w strumieniu uznawane są jako int, stąd odpowiedz A
+//with idiom
 
-    //2.3.1.1.	Zastąpienie klasy anonimowej wyrażeniem lambda
-    interface SimpleAuthorization {
-        void authorize();
+
+    class Main2 {
+        public static void main(String[] args) {
+            String uri = String.join("/", "api", "v1", "books", "5");
+            uri.chars()
+                    .forEach(c -> System.out.print(String.valueOf(c)));
+            System.out.print(" ");
+            System.out.print(uri);
+        }
     }
-    interface TokenAuthorization {
-        void authorize(String token);
-    }
-    interface PhoneAuthorization {
-        void authorize(String token, String mobile);
-    }
-    public static void main(String[] args) {
-        //with idiom
-        authorize(() -> System.out.print("nothing"));
-        authorize((token) -> System.out.print(token));
-        authorize((token, phone) -> System.out.print(token + " " + phone));
+
          /*
         * Jaki wynik zostanie wypisany na konsoli po wywołaniu powyższego programu?
-        * A) nothingnothingnothing
-        * B) W trakcie wykonywania programu zostanie rzucony wyjątek IllegalArgumentException
-        * C) wer4cr134tv3wer4cr134tv3vsdfbrgtdyu6 565654345
-        * +D) nothingwer4cr134tv3vsdfbrgtdyu6 565654345
+        * +A) 97112105471184947981111111071154753 api/v1/books/5
+        * B) api/v1/books/5 api/v1/books/5
+        * C) /api/v1/books/5/ api/v1/books/5
+        * D) /api/v1/books/5/ /api/v1/books/5/
         * */
+
+ //without
+
+    public class Main {
+        public static void main(String[] args) {
+            String uri =  "api" + "/" + "v1" + "/" + "books" + "/" + "5";
+            for(char c : uri.toCharArray()) {
+                System.out.print(String.valueOf(c));
+            }
+            System.out.print(" ");
+            System.out.print(uri);
+        }
     }
 
-    public static void main2(String[] args) {
-        //without idiom
-        authorize(new SimpleAuthorization() {
-            @Override
-            public void authorize() {
-                System.out.print("nothing");
-            }
-        });
-        authorize(new TokenAuthorization() {
-            @Override
-            public void authorize(String token) {
-                System.out.print(token);
-            }
-        });
-        authorize(new PhoneAuthorization() {
-            @Override
-            public void authorize(String token, String mobile) {
-                System.out.print(token + " " + mobile);
-            }
-        });
+
         /*
         * Jaki wynik zostanie wypisany na konsoli po wywołaniu powyższego programu?
-        * A) nothingnothingnothing
-        * B) W trakcie wykonywania programu zostanie rzucony wyjątek IllegalArgumentException
-        * C) wer4cr134tv3wer4cr134tv3vsdfbrgtdyu6 565654345
-        * +D) nothingwer4cr134tv3vsdfbrgtdyu6 565654345
+        * A) 97112105471184947981111111071154753 api/v1/books/5
+        * +B) api/v1/books/5 api/v1/books/5
+        * C) /api/v1/books/5/ api/v1/books/5
+        * D) /api/v1/books/5/ /api/v1/books/5/
         * */
-    }
-
-    public static void authorize(SimpleAuthorization auth) {
-        auth.authorize();
-    }
-    public static void authorize(TokenAuthorization auth) {
-        auth.authorize("wer4cr134tv3");
-    }
-    public static void authorize(PhoneAuthorization auth) {
-        auth.authorize("vsdfbrgtdyu6", "565654345");
-    }
-}
